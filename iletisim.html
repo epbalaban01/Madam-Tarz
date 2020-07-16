@@ -1,0 +1,359 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>İletişim</title>
+	<meta name="keywords" content="../">
+	<meta name="description" content="../">
+	<meta name="author" content="Gizem Doğu">
+	<meta name="classification" content="web tasarım">
+	<meta name="googlebot" content="All, Index, Follow" />
+	<meta name="Robots" content="All, Index, Follow" />
+	<meta name="revisit-after" content="7 days">
+	<meta name="rating" content="General" />
+	<meta name="expires" content="no" />
+	<meta name="language" content="turkish, TR" />
+	<meta name="distribution" content="Global" />
+	<meta name="googlebot" content="NOODP" />
+	<meta name="robots" content="all" />
+	<meta name="robots" content="follow" />
+	<meta name="robots" content="index" />
+	<meta name="distribution" content="global" />
+	<meta name="revisit-after" content="1 Day" />
+	<meta http-equiv="Copyright" content="Copyright © webturkuaz.com">
+
+	<!-- ============ Styles ============ -->
+	<link rel="stylesheet" href="assets/styles/reset.css" type="text/css" />
+	<link rel="stylesheet" href="assets/styles/custom.css" type="text/css" />
+	<link rel="stylesheet" href="assets/font/font.css" type="text/css" />
+
+	<!-- ============ Font-Awesome ============ -->
+	<link rel="stylesheet" href="assets/styles/font-awesome.css" type="text/css" />
+
+	<!-- ============ Mobil CSS ============ -->
+	<link rel="stylesheet" href="assets/mobile/media-queries.css" type="text/css" />
+
+	<!-- ============ Google Font ============ -->
+
+	<!-- ============ Fav-Icon ============ -->
+	<link rel="Shortcut Icon" href="assets/images/icons/fav_icon.png" type="image/x-icon">
+    
+    <!-- Scripts -->
+	<script type="text/javascript" src="assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/scripts/custom.js"></script>
+
+
+    <!-- Add jQuery assetsrary -->
+	<script type="text/javascript" src="assets/scripts/jquery-1.10.1.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="assets/scripts/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="assets/source/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="assets/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="assets/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="assets/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="assets/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="assets/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="assets/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+
+	<!-- ============ Simple image gallery ============ -->
+	<!-- <a class="fancybox" href="1_b.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="1_s.jpg" alt="" /></a> -->
+
+	<!-- ============ Different effects ============ -->
+	<!-- <a class="fancybox-effects-a" href="5_b.jpg" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit"><img src="5_s.jpg" alt="" /></a> -->
+
+</head>
+<body>
+
+<!-- top_bg -->
+<div class="top_bg">
+	<!-- ortala -->
+	<div class="ortala">
+		<!-- logo -->
+		<a href="index.html" class="logo">
+			<img src="assets/images/logo.png" width="115" height="22" alt="../" />
+		</a><!-- logo -->
+
+		<!-- top_menu -->
+		<div class="top_menu">
+			<ul>
+				<li><a href="iletisim.html">Müşteri Hizmetleri</a></li>
+				<li><span>|</span></li>
+				<li><a href="iletisim.html">Mobil</a></li>
+				<li><span>|</span></li>
+				<li><a href="iletisim.html">İletişim</a></li>
+			</ul>
+		</div><!-- top_menu -->
+
+		<!-- social_box -->
+		<div class="social_box">
+			<ul>
+				<li>						   <a href="https://www.facebook.com/"><img src="assets/images/fb.png" width="34" height="34" alt="../" /></a></li>
+				<li>						   <a href="https://twitter.com/"><img src="assets/images/tw.png" width="34" height="34" alt="../" /></a></li>
+				<li style="margin-right: 0px;"><a href="https://plus.google.com/"><img src="assets/images/gm.png" width="34" height="34" alt="../" /></a></li>
+			</ul>
+		</div><!-- social_box -->
+
+		<div class="clear"></div>
+
+		<!-- menu -->
+		<div class="menu">
+			<ul>
+				<li><a href="index.html">ANASAYFA</a></li>
+				<li><a href="hakkimizda.html">HAKKIMIZDA</a></li>
+				<li><a href="urunlerimiz.html">ÜRÜNLERİMİZ</a></li>
+				<li><a href="referanslar.html">REFERANSLARIMIZ</a></li>
+				<li><a href="iletisim.html">İLETİŞİM</a></li>
+			</ul>
+			<a href="iletisim.html" class="menu_contact_bg">
+				<h6>Bize Ulaşın</h6>
+				<h1>0 236 365 26 35</h1>
+			</a>
+		</div><!-- menu -->
+		<div class="menu_shadow"></div>
+	</div><!-- ortala -->
+</div><!-- top_bg -->
+<!-- ============ include / header.html ============ -->
+
+<!-- red_bg -->
+<div class="red_bg" style="height: 120px;">
+	<!-- ortala -->
+	<div class="ortala">
+		<!-- hakkimiz -->
+		<div class="hakkimiz">
+			<img src="assets/images/iletisim.png" width="147" height="45" alt="../" />
+		</div><!-- hakkimiz -->
+	</div><!-- ortala -->
+</div><!-- red_bg -->
+
+<!-- ortala -->
+<div class="ortala">
+	<div class="iletisim">
+		
+		<div class="sol">
+			<b>Adres</b>	:	 Hürriyet Mahallesi No:1 DİNAR / AFYONKARAHİSAR<p>
+			<b>Telefon</b>	:	0 236 365 26 35 <p>
+			<b>Fax</b>	:	0 236 365 36 23 <p>
+			<b>Mail</b>	:	madamtarz@gmail.com
+		</div>
+			<div class="dikey-cizgi"></div>
+			<div class="sag">
+				<form method="POST" action=" ">
+					<input type="text" name="ad_soyad" class="textbox" onblur="if(this.value==''){this.value='Adınız ve Soyadınız'}" onclick="if(this.value=='Adınız ve Soyadınız'){this.value=''}" value="Adınız ve Soyadınız"><br>
+					<input type="text" name="mail"  class="textbox" onblur="if(this.value==''){this.value='Mail Adresiniz'}" onclick="if(this.value=='Mail Adresiniz'){this.value=''}" value="Mail Adresiniz"><br>
+					<input type="text" name="ad_soyad"  class="textbox" onblur="if(this.value==''){this.value='Telefon Numaranız'}" onclick="if(this.value=='Telefon Numaranız'){this.value=''}" value="Telefon Numaranız"><br>
+					<textarea class="textarea" name="mesaj" placeholder="Mesajınız"></textarea><br><div class="clear"></div>
+					<input type="reset" name="reset"  value="Reset" class="reset">
+					<input type="submit" name="gonder"  value="Gönder" class="button">
+				</form>
+			</div>
+			<div class="clear"></div>
+			<div class="maps">
+				<iframe src="https://maps.google.com/maps?q=dinar%20meslek%20y%C3%BCksekokulu&t=&z=13&ie=UTF8&iwloc=&output=embed" width="970" height="200" frameborder="0" style="border:0"></iframe>
+			</div>
+		</div>
+
+	<div class="clear"></div>
+</div><!-- ortala -->
+
+<!-- ============ include / footer.html ============ -->
+<!-- footer_bg -->
+<div class="footer_bg">
+	<!-- ortala -->
+	<div class="ortala">
+		<div class="footer">
+			<h1>Copyright © 2020</h1>
+			<a href="">Tasarım <b>madamtarz.com</b></a>
+		</div>
+	</div><!-- ortala -->
+</div><!-- footer_bg -->
+
+</body>
+</html>
